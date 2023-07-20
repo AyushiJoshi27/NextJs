@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "bson": "^5.4.0",
     "mongodb": "^5.7.0",
     "next": "^13.0.7",
     "react": "^18.2.0",

@@ -1,11 +1,9 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 
 export async function connectDatabase() {
   const client = await MongoClient.connect(
-    'mongodb+srv://new-project:FYrlJccpWFRnpIPm@cluster0.obgyh78.mongodb.net/events?retryWrites=true&w=majority'
+    "mongodb+srv://new-project:ZAeWPAGCuw1zExWv@cluster0.obgyh78.mongodb.net/events"
   );
-
-  console.log(client);
   return client;
 }
 
@@ -13,7 +11,6 @@ export async function insertDocument(client, collection, document) {
   const db = client.db();
 
   const result = await db.collection(collection).insertOne(document);
-  console.log(result);
   return result;
 }
 
@@ -25,6 +22,12 @@ export async function getAllDocuments(client, collection, sort) {
     .find()
     .sort(sort)
     .toArray();
-  console.log(documents);
   return documents;
+}
+export async function deleteOne2(collection, id) {
+  const client = await connectDatabase();
+
+  const db = client.db();
+  const result = await db.collection(collection).deleteOne({ _id: new ObjectId(id) });
+  return result;
 }

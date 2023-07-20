@@ -12,7 +12,7 @@ function EventLogistics(props) {
     month: 'long',
     year: 'numeric',
   });
-  console.log(location);
+
   const addressText = location.replace(', ', '\n');
 
   return (
