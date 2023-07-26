@@ -7,6 +7,11 @@ const testSchema = new Schema({
         required: true,
         unique: true,
     },
+    name: {
+        type: String,
+        required: true,
+        unique: true,
+    },
 })
 
 const Test = models.Test || model("Test", testSchema);
